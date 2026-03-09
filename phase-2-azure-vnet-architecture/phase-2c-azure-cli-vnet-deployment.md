@@ -72,7 +72,15 @@ az network vnet subnet create \
     --vnet-name "VNet-Core-WestUS" \
     --name "Subnet-App" \
     --address-prefix "10.2.1.0/24" \
-    --verbose
+    --verbose \
+    --output table
+
+az network vnet subnet create
+    --resource-group "RG-Azure-Bash-CLI-WestUS" \
+    --vnet-name "VNet-Core-WestUS" \
+    --name "Subnet-DB" \
+    --address-prefix "10.2.1.0/24" \
+    --verbose \
     --output table
 
 az network vnet subnet create
@@ -80,19 +88,28 @@ az network vnet subnet create
     --vnet-name "VNet-Core-WestUS" \
     --name "Subnet-DB" \
     --address-prefix "10.2.2.0/24" \
-    --verbose
+    --verbose \
     --output table
+
 az network vnet subnet create
     --resource-group "RG-Azure-Bash-CLI-WestUS" \
     --vnet-name "VNet-Core-WestUS" \
     --name "Subnet-Management" \
     --address-prefix "10.2.3.0/24" \
-    --verbose
+    --verbose \
     --output table
 
 #### Validation
 
+az network vnet subnet list \
+    --resource-group "RG"Azure-Bash-CLI-WestUS"
+    --vnet-name "VNet-Core-WestUS"
+    --verbose
+    --output table \
 
+---
+End of Step 3
+---
 
 ### Step 4 – Deploy Virtual Machines
 
