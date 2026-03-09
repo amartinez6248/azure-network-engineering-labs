@@ -38,6 +38,8 @@ az group show --name rg-vnet-lab --output table
 End of Step 1
 ---
 
+
+
 ---
 
 ### Step 2 – Create Virtual Network
@@ -46,15 +48,6 @@ End of Step 1
 No progress commentary.
 
 ---
-
-# Section 3 — Microsoft-Style Technical Table
-
-| Field | Interchangeable Terms | Explanation | Use Case | Analogy |
-|------|------|------|------|------|
-| Documentation Runbook | Deployment Guide | Step-by-step instructions to deploy infrastructure | Infrastructure teams | Construction blueprint |
-| Lab Skeleton | Template | Initial structure before implementation | Standardized labs | House framing |
-| CLI Deployment | Infrastructure via command line | Azure resources created via CLI | DevOps workflows | Power tools vs hand tools |
-| Validation Command | Verification step | Confirms resources exist | Troubleshooting | Inspecting finished work |
 
 ---
 
@@ -67,3 +60,16 @@ No progress commentary.
 
 
 ### Step 5 – Validate Connectivity
+
+
+
+## Microsoft-Style Technical Table
+
+| Field | Interchangeable Terms | Explanation | Use Case | Analogy |
+|------|------|------|------|------|
+| Documentation Runbook | Deployment Guide | Step-by-step instructions to deploy infrastructure | Infrastructure teams | Construction blueprint |
+| Lab Skeleton | Template | Initial structure before implementation | Standardized labs | House framing |
+| CLI Deployment | Infrastructure via command line | Azure resources created via CLI | DevOps workflows | Power tools vs hand tools |
+| Validation Command | Verification step | Confirms resources exist | Troubleshooting | Inspecting finished work |
+
+
