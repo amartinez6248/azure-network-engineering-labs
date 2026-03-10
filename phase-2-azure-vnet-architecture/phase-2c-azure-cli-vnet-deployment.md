@@ -126,7 +126,61 @@ End of Step 3
 
 ### Step 4 – Deploy Virtual Machines
 
+**Note** 
+VM names subject to change 
 
+#### Deploy VM In Application Subnet
+
+```bash
+az vm create \
+    --resource-group "RG-Azure-Bash-CLI-WestUS" \
+    --name "vm-app" \
+    --image "Ubuntu2204" \
+    --vnet-name "VNet-Core-WestUS" \
+    --subnet "Subnet-App" \
+    --admin-username "azureadmin" \
+    --generate-ssh-keys \
+    --public-ip-sku Standard \
+    --verbose
+```
+
+#### Deploy VM In Database Subnet
+
+```bash
+az vm create \
+    --resource-group "RG-Azure-Bash-CLI-WestUS" \
+    --name "vm-db" \
+    --image "Ubuntu2204" \
+    --vnet-name "VNet-Core-WestUS" \
+    --subnet "Subnet-DB" \
+    --admin-username "azureadmin" \
+    --generate-ssh-keys \
+    --public-ip-sku Standard \
+    --verbose
+```
+
+#### Deploy VM In Management Subnet
+
+```bash
+az vm create \
+    --resource-group "RG-Azure-Bash-CLI-WestUS" \
+    --name "vm-mgmt" \
+    --image "Ubuntu2204" \
+    --vnet-name "VNet-Core-WestUS" \
+    --subnet "Subnet-Management" \
+    --admin-username "azureadmin" \
+    --generate-ssh-keys \
+    --public-ip-sku Standard \
+    --verbose
+```
+
+#### Validation Of Step 4
+
+
+
+---
+End of Step 4
+---
 
 ### Step 5 – Validate Connectivity
 
