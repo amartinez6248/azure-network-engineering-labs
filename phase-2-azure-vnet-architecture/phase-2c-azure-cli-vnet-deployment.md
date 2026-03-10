@@ -34,8 +34,6 @@ az group create \
 
 #### Validation
 
-
-
 ```bash
 az group show \
   --name "RG-Azure-Bash-CLI-WestUS" \
@@ -405,3 +403,187 @@ End of Error 7
 
 ## Section 6 - Successful Command Output (Verbose Mode)
 
+### Step 1 – Resource Group Creation
+
+#### Command Execution
+
+```bash
+az group create \
+--name "RG-Azure-Bash-CLI-WestUS" \
+--location westus \
+--verbose
+```
+
+#### Verbose Output
+
+```bash
+{
+  "id": "/subscriptions/<subscription-id>/resourceGroups/RG-Azure-Bash-CLI-WestUS",
+  "location": "westus",
+  "managedBy": null,
+  "name": "RG-Azure-Bash-CLI-WestUS",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+
+Command ran in 1.204 seconds (init: 0.192, invoke: 1.012)
+```
+
+#### Validation Command
+
+```bash
+az group show \
+--name "RG-Azure-Bash-CLI-WestUS" \
+--output table \
+--verbose
+```
+
+#### Returned Output
+
+```bash
+Location    Name
+----------  -------------------------
+westus      RG-Azure-Bash-CLI-WestUS
+
+Command ran in 0.942 seconds (init: 0.188, invoke: 0.754)
+```
+
+---
+End of Step 1
+---
+
+### Step 2 – Virtual Network Creation
+
+#### Command Execution
+
+```bash
+az network vnet create \
+--resource-group "RG-Azure-Bash-CLI-WestUS" \
+--name "VNet-Core-WestUS" \
+--address-prefix "10.2.0.0/16" \
+--location "westus" \
+--verbose
+```
+
+#### Verbose Output
+
+```bash
+{
+  "newVNet": {
+    "name": "VNet-Core-WestUS",
+    "location": "westus",
+    "resourceGroup": "RG-Azure-Bash-CLI-WestUS",
+    "addressSpace": {
+      "addressPrefixes": [
+        "10.2.0.0/16"
+      ]
+    },
+    "subnets": []
+  }
+}
+
+Command ran in 2.341 seconds (init: 0.190, invoke: 2.151)
+```
+
+#### Validation Command
+
+```bash
+az network vnet show \
+--resource-group "RG-Azure-Bash-CLI-WestUS" \
+--name "VNet-Core-WestUS" \
+--output table \
+--verbose
+```
+
+#### Returned Output
+
+```bash
+Name            ResourceGroup                Location
+--------------  ---------------------------  --------
+VNet-Core-WestUS RG-Azure-Bash-CLI-WestUS   westus
+
+Command ran in 1.112 seconds (init: 0.191, invoke: 0.921)
+```
+
+---
+End of Step 2
+---
+
+### Step 3 – Subnet Creation
+
+#### Command Execution
+
+```bash
+az network vnet subnet list \
+--resource-group "RG-Azure-Bash-CLI-WestUS" \
+--vnet-name "VNet-Core-WestUS" \
+--output table \
+--verbose
+```
+
+#### Verbose Output
+
+```bash
+Name                AddressPrefix
+------------------  --------------
+Subnet-App          10.2.1.0/24
+Subnet-DB           10.2.2.0/24
+Subnet-Management   10.2.3.0/24
+
+Command ran in 1.084 seconds (init: 0.187, invoke: 0.897)
+```
+
+#### Validation Command
+
+```bash
+az network vnet show \
+--resource-group RG-Azure-Bash-CLI-WestUS \
+--name VNet-Core-WestUS \
+--query "{Vnet:name, AddressSpace:addressSpace.addressPrefixes, Subnets:subnets[].{Name:name,Prefix:addressPrefix}}" \
+--output yamlc \
+--verbose
+```
+
+#### Returned Output
+
+```bash
+AddressSpace:
+- 10.2.0.0/16
+Subnets:
+- Name: Subnet-App
+  Prefix: 10.2.1.0/24
+- Name: Subnet-DB
+  Prefix: 10.2.2.0/24
+- Name: Subnet-Management
+  Prefix: 10.2.3.0/24
+Vnet: VNet-Core-WestUS
+
+Command ran in 1.342 seconds (init: 0.189, invoke: 1.153)
+```
+
+---
+End of Step 3
+---
+
+### Step 4 – Deploy Virtual Machines
+
+#### Command Execution
+
+**note**
+This sector will either be updated in the future, or a reference on where to find the successful inputs will be placed in this section, effectively replacing the format in this step.
+
+---
+End of Step 4
+---
+
+### Step 5 – Validate Connectivity
+
+**note**
+This sector will either be updated in the future, or a reference on where to find the successful inputs will be placed in this section, effectively replacing the format in this step.
+
+---
+End of Step 5
+---
