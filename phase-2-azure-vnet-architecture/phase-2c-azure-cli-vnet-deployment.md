@@ -58,7 +58,8 @@ az network vnet create \
     --resource-group "RG-Azure-Bash-CLI-WestUS" \
     --name "VNet-Core-WestUS" \
     --address-prefix "10.2.0.0/16" \
-    --location "westus"
+    --location "westus" \
+    --verbose
 ```
 
 #### Validation
@@ -67,7 +68,8 @@ az network vnet create \
 az network vnet show \
     --resource-group "RG-Azure-Bash-CLI-WestUS" \
     --name "VNet-Core-WestUS" \
-    --output table
+    --output table \
+    --verbose
 ```
 
 ---
@@ -112,8 +114,8 @@ az network vnet subnet create \
 
 ```bash
 az network vnet subnet list \
-    --resource-group "RG-Azure-Bash-CLI-WestUS"
-    --vnet-name "VNet-Core-WestUS"
+    --resource-group "RG-Azure-Bash-CLI-WestUS" \
+    --vnet-name "VNet-Core-WestUS" \
     --output table \
     --verbose
 ```
