@@ -1,12 +1,40 @@
+---
 # Phase 2C – Azure CLI VNet Deployment
+---
 
+---
 ## Section 1 - Objective
+---
+
+### Purpose
 
 Deploy and validate an Azure Virtual Network architecture using Azure CLI.
 
+### Desired Outcome
+
++ The creation of a core resource group containing all resources located within the West US region with the purpose of creation of resources using Azure Bash CLI and ONLY resources created by Azure Bash CLI
+  * Resource group name will be "RG-Azure-Bash-CLI-WestUS"
++ The creation of a core network within the West US region called "VNet-Core-WestUS"
+  * Contains an address prefix of 10.2.0.0/16 for an effective address range of 10.2.0.0 - 10.2.255.255
+  * Will be contained in the West US region
+  * Contains the following subnets
+    - Subnet-App-WestUS
+    - Subnet-DB-WestUS
+    - Subnet-Management-WestUS
++ The creation of subnets within the West US region's "VNet-Core-WestUS" VNet core network
+  * Formatted with the following address ranges:
+    - Subnet-App-WestUS: 10.2.1.0/24
+    - Subnet-DB-WestUS: 10.2.2.0/24
+    - Subnet-Management-WestUS: 10.2.3.0/24
++ The creation of virtual machines (VMs) within each respective subnet environment
++ The validation of interactions and verification of connectivity across other core networks within different regions
+
+### End of Section 1
 ---
 
+---
 ## Section 2 - Architecture Components
+---
 
 - Resource Group
 - Virtual Network (VNet)
@@ -15,10 +43,23 @@ Deploy and validate an Azure Virtual Network architecture using Azure CLI.
 - Virtual Machines
 - Routing
 
++ Format
+
+Core documentation: "azure-network-engineering-labs"
+├─ Phase-0-Billing-Guardrails
+├─ Phase-1-Foundations
+├─ Phase-2-VNet-Architecture
+│   ├─ Azure Portal 
+│   ├─ Azure Bash CLI Deployment
+│   ├─ Azure Powershell Deployment
+│   ├─ Verification & Validation
+│   └─ Documentation
+
+### End of Section 2
 ---
 
+---
 ## Section 3 - Lab Deployment Steps
-
 ---
 
 ### Step 1 – Create Resource Group
@@ -41,12 +82,7 @@ az group show \
   --verbose
 ```
 
----
-End of Step 1
----
-
-
-
+#### End of Step 1
 ---
 
 ### Step 2 – Create Virtual Network
@@ -70,8 +106,7 @@ az network vnet show \
     --verbose
 ```
 
----
-End of Step 2
+#### End of Step 2
 ---
 
 ### Step 3 – Create Subnets
@@ -118,9 +153,7 @@ az network vnet subnet list \
     --verbose
 ```
 
----
-End of Step 3
----
+#### End of Step 3
 
 ### Step 4 – Deploy Virtual Machines
 
@@ -177,8 +210,7 @@ az vm create \
 **note**
 Validation commands for VM deployment will be documented after virtual machine provisioning is confirmed. It will either be confirmed here, or a reference will be added to this validation step in the future.
 
----
-End of Step 4
+#### End of Step 4
 ---
 
 ### Step 5 – Validate Connectivity
@@ -186,7 +218,14 @@ End of Step 4
 **note**
 Validation commands for VM deployment will be documented after virtual machine provisioning is confirmed. It will either be confirmed here, or a reference will be added to this validation step in the future.
 
+#### End of Step 5
+---
+
+---
 ## Section 4 - Microsoft-Style Technical Table
+---
+
+### Table
 
 | Field | Interchangeable Terms | Explanation | Use Case | Analogy |
 |------|------|------|------|------|
@@ -195,9 +234,12 @@ Validation commands for VM deployment will be documented after virtual machine p
 | CLI Deployment | Infrastructure via command line | Azure resources created via CLI | DevOps workflows | Power tools vs hand tools |
 | Validation Command | Verification step | Confirms resources exist | Troubleshooting | Inspecting finished work |
 
+### End of Section 4
 ---
 
+---
 ## Section 5 - Errors Encountered During Deployment
+---
 
 ### Error 1 - Command Typo
 
@@ -229,8 +271,7 @@ Read more about the command in reference docs
 Command ran in 7.561 seconds (init: 0.191, invoke: 7.370)
 ```
 
----
-End of Error 1
+#### End of Error 1
 ---
 
 ### Error 2 - Invalid JMESPath Query
@@ -260,8 +301,7 @@ The correct syntax has a comma as a separator. Otherwise, it will treat the "Nam
 Invalid jmespath query supplied for --query
 ```
 
----
-End of Error 2
+#### End of Error 2
 ---
 
 ### Error 3 - Missing Command Continuation Character
@@ -286,8 +326,7 @@ The Bash line continuation character \ was missing after "RG-Azure-Bash-CLI-West
 --vnet-name: command not found
 ```
 
----
-End of Error 3
+#### End of Error 3
 ---
 
 ### Error 4 - Misplaced Quotation Marks
@@ -313,8 +352,7 @@ Meanwhile, it will treat the other quotation mark as an unfinished parameter bec
 unexpected EOF while looking for matching quote
 ```
 
----
-End of Error 4
+#### End of Error 4
 ---
 
 ### Error 5 - Incorrect Command Structure
@@ -340,8 +378,7 @@ A backslash "\" was missing at the end of "az network vnet subnet list". Because
 --resource-group: command not found
 ```
 
----
-End of Error 5
+#### End of Error 5
 ---
 
 ### Error 6 - Incorrect Query Field Reference
@@ -368,8 +405,7 @@ For this one, there is a syntax error within the "--query" flag of "az network v
 Invalid jmespath query supplied for --query
 ```
 
----
-End of Error 6
+#### End of Error 6
 ---
 
 ### Error 7 – Incorrect Azure CLI Parameter Usage
@@ -397,11 +433,12 @@ For this one, there is a syntax error within the "--vnet-name" flag of "az netwo
 unrecognized arguments: --vnet-name
 ```
 
----
-End of Error 7
+#### End of Error 7
 ---
 
+---
 ## Section 6 - Successful Command Output (Verbose Mode)
+---
 
 ### Step 1 – Resource Group Creation
 
@@ -451,8 +488,7 @@ westus      RG-Azure-Bash-CLI-WestUS
 Command ran in 0.942 seconds (init: 0.188, invoke: 0.754)
 ```
 
----
-End of Step 1
+#### End of Step 1
 ---
 
 ### Step 2 – Virtual Network Creation
@@ -508,8 +544,7 @@ VNet-Core-WestUS RG-Azure-Bash-CLI-WestUS   westus
 Command ran in 1.112 seconds (init: 0.191, invoke: 0.921)
 ```
 
----
-End of Step 2
+#### End of Step 2
 ---
 
 ### Step 3 – Subnet Creation
@@ -564,8 +599,7 @@ Vnet: VNet-Core-WestUS
 Command ran in 1.342 seconds (init: 0.189, invoke: 1.153)
 ```
 
----
-End of Step 3
+#### End of Step 3
 ---
 
 ### Step 4 – Deploy Virtual Machines
@@ -575,8 +609,7 @@ End of Step 3
 **note**
 This sector will either be updated in the future, or a reference on where to find the successful inputs will be placed in this section, effectively replacing the format in this step.
 
----
-End of Step 4
+#### End of Step 4
 ---
 
 ### Step 5 – Validate Connectivity
@@ -584,6 +617,5 @@ End of Step 4
 **note**
 This sector will either be updated in the future, or a reference on where to find the successful inputs will be placed in this section, effectively replacing the format in this step.
 
----
-End of Step 5
+#### End of Step 5
 ---
