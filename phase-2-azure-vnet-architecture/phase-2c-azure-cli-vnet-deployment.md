@@ -154,6 +154,7 @@ az network vnet subnet list \
 ```
 
 #### End of Step 3
+---
 
 ### Step 4 – Deploy Virtual Machines
 
