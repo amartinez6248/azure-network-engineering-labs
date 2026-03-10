@@ -27,14 +27,21 @@ Create the resource group for the lab environment.
 
 ```bash
 az group create \
-  --name rg-vnet-lab \
-  --location eastus
+  --name "RG-Azure-Bash-CLI-WestUS" \
+  --location westus \
+  --verbose
+```
 
 #### Validation
 
 
 
-az group show --name rg-vnet-lab --output table
+```bash
+az group show \
+  --name "RG-Azure-Bash-CLI-WestUS" \
+  --output table \
+  --verbose
+```
 
 ---
 End of Step 1
@@ -46,18 +53,22 @@ End of Step 1
 
 ### Step 2 – Create Virtual Network
 
+```bash
 az network vnet create \
     --resource-group "RG-Azure-Bash-CLI-WestUS" \
     --name "VNet-Core-WestUS" \
     --address-prefix "10.2.0.0/16" \
     --location "westus"
+```
 
 #### Validation
 
+```bash
 az network vnet show \
     --resource-group "RG-Azure-Bash-CLI-WestUS" \
     --name "VNet-Core-WestUS" \
     --output table
+```
 
 ---
 End of Step 2
@@ -65,8 +76,9 @@ End of Step 2
 
 ### Step 3 – Create Subnets
 
-####Creation
+#### Creation
 
+```bash
 az network vnet subnet create \
     --resource-group "RG-Azure-Bash-CLI-WestUS" \
     --vnet-name "VNet-Core-WestUS" \
@@ -74,38 +86,37 @@ az network vnet subnet create \
     --address-prefix "10.2.1.0/24" \
     --verbose \
     --output table
+```
 
-az network vnet subnet create
-    --resource-group "RG-Azure-Bash-CLI-WestUS" \
-    --vnet-name "VNet-Core-WestUS" \
-    --name "Subnet-DB" \
-    --address-prefix "10.2.1.0/24" \
-    --verbose \
-    --output table
-
-az network vnet subnet create
+```bash
+az network vnet subnet create \
     --resource-group "RG-Azure-Bash-CLI-WestUS" \
     --vnet-name "VNet-Core-WestUS" \
     --name "Subnet-DB" \
     --address-prefix "10.2.2.0/24" \
     --verbose \
     --output table
+```
 
-az network vnet subnet create
+```bash
+az network vnet subnet create \
     --resource-group "RG-Azure-Bash-CLI-WestUS" \
     --vnet-name "VNet-Core-WestUS" \
     --name "Subnet-Management" \
     --address-prefix "10.2.3.0/24" \
     --verbose \
     --output table
+```
 
 #### Validation
 
+```bash
 az network vnet subnet list \
-    --resource-group "RG"Azure-Bash-CLI-WestUS"
+    --resource-group "RG-Azure-Bash-CLI-WestUS"
     --vnet-name "VNet-Core-WestUS"
-    --verbose
     --output table \
+    --verbose
+```
 
 ---
 End of Step 3
