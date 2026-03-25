@@ -1,0 +1,340 @@
+---
+# Phase 2C – Azure CLI File Navigation & nano Mastery
+---
+
+---
+## Section 1 - Objective
+---
+
+### Purpose
+
+Develop operational mastery of Azure Cloud Shell file navigation and text editing using Bash and the nano editor.
+
+### Desired Outcome
+
++ Ability to navigate the Linux file system using Bash CLI
++ Ability to create, edit, and manage files using nano
++ Understanding of GNU Readline behavior and keyboard interpretation
++ Awareness of browser limitations affecting CLI behavior
++ Ability to troubleshoot and adapt to Cloud Shell input constraints
+
+### End of Section 1
+---
+
+---
+## Section 2 - Architecture Components
+---
+
+- Azure Cloud Shell (Bash)
+- GNU Readline Engine
+- nano Text Editor
+- Browser Input Layer
+- Linux File System
+
++ Format
+
+```bash
+Core documentation: "azure-network-engineering-labs"
+├─ Phase-0-Billing-Guardrails
+├─ Phase-1-Foundations
+├─ Phase-2-VNet-Architecture
+│   ├─ Azure Portal 
+│   ├─ Azure Bash CLI Deployment
+│   ├─ Azure Powershell Deployment
+│   ├─ Verification & Validation
+│   └─ Documentation
+├─ Phase-2C-File-Navigation
+│   ├─ CLI Navigation
+│   ├─ nano Editor
+│   ├─ Readline Behavior
+│   └─ Documentation
+```
+
+### End of Section 2
+---
+
+---
+## Section 3 - Lab Deployment Steps
+---
+
+### Step 1 – Verify Current Directory
+
+```bash
+pwd
+```
+
+#### Validation
+
+```bash
+/home/<username>
+```
+
+#### End of Step 1
+---
+
+### Step 2 – List Files
+
+```bash
+ls
+```
+
+#### Extended Listing
+
+```bash
+ls -la
+```
+
+#### End of Step 2
+---
+
+### Step 3 – Create and Open File in nano
+
+```bash
+nano my-first-note.txt
+```
+
+#### Behavior
+
+- Creates file if it does not exist
+- Opens file editor if it exists
+
+#### End of Step 3
+---
+
+### Step 4 – Basic nano Operations
+
+| Action | Key |
+|------|------|
+| Save | Ctrl + O |
+| Exit | Ctrl + X |
+| Cancel | Ctrl + C |
+
+#### End of Step 4
+---
+
+### Step 5 – Viewport Navigation
+
+| Action | Key |
+|------|------|
+| Page Down | PgDn |
+| Page Up | PgUp |
+
+#### Observation
+
+Movement is dependent on terminal viewport size.
+
+#### End of Step 5
+---
+
+### Step 6 – Search Function
+
+```bash
+Ctrl + W
+```
+
+#### Browser Limitation
+
+Ctrl + W closes browser tab.
+
+#### Workaround
+
+```bash
+F6
+```
+
+#### End of Step 6
+---
+
+### Step 7 – Replace Function
+
+```bash
+Ctrl + \
+```
+
+#### End of Step 7
+---
+
+### Step 8 – Word Navigation
+
+| Action | Key |
+|------|------|
+| Back word | Alt + B |
+| Forward word | Alt + F |
+
+#### Issue
+
+Browser intercepts Alt key combinations.
+
+#### End of Step 8
+---
+
+### Step 9 – Workaround Strategy
+
+- Use arrow keys
+- Use PgUp / PgDn
+- Use function keys (F6)
+
+#### End of Step 9
+---
+
+---
+## Section 4 - Microsoft-Style Technical Table
+---
+
+### Table Markdown
+
+| Field | Parent Command | Syntax | Interchangeable Terms | Explanation | Use Case | Analogy |
+|------|------|------|------|------|------|------|
+| pwd | bash | `pwd` | print working directory | Displays current directory | Confirm working location | GPS check |
+| ls | bash | `ls -la` | list files | Lists directory contents | Inspect files | Looking inside a room |
+| nano | bash | `nano file.txt` | text editor | Opens terminal editor | Edit files | Writing in notebook |
+| Ctrl+O | nano | save | write file | Saves file | Persist data | Saving document |
+| Ctrl+X | nano | exit | close editor | Exits nano | Finish editing | Closing notebook |
+| Ctrl+W | nano | search | find | Searches text | Locate data | Ctrl+F |
+| F6 | nano/browser | search alt | fallback search | Browser-safe search | Cloud Shell search | Backup tool |
+| PgDn | terminal | page down | scroll | Moves view down | Navigate file | Scroll page |
+| PgUp | terminal | page up | scroll | Moves view up | Navigate file | Scroll up |
+| Alt+B | readline | backward word | word jump | Moves cursor backward | Faster navigation | Jump words |
+| Alt+F | readline | forward word | word jump | Moves cursor forward | Faster navigation | Jump words |
+
+### End of Section 4
+---
+
+---
+## Section 5 - Errors Encountered During Deployment
+---
+
+### Error 1 - Ctrl+W Closes Browser
+
+#### Cause Of Error
+
+Browser shortcut override
+
+#### Error Result
+
+Search not executed in nano
+
+#### End of Error 1
+---
+
+### Error 2 - Alt Key Failure
+
+#### Cause Of Error
+
+Browser intercepts Alt combinations
+
+#### Error Result
+
+Unexpected behavior or characters
+
+#### End of Error 2
+---
+
+### Error 3 - Inconsistent Page Navigation
+
+#### Cause Of Error
+
+Viewport-based rendering
+
+#### Error Result
+
+Variable scrolling behavior
+
+#### End of Error 3
+---
+
+---
+## Section 6 - Successful Command Output (Observations)
+---
+
+### Observation 1 – Viewport Navigation
+
+PgUp and PgDn depend on terminal size.
+
+---
+
+### Observation 2 – F6 Search Works
+
+F6 successfully replaces Ctrl+W in browser.
+
+---
+
+### Observation 3 – Replace Mode Functional
+
+nano replace functionality confirmed.
+
+---
+
+### End of Section 6
+---
+
+---
+## Section 7 - Generalized Workflow
+---
+
+☑ Open Cloud Shell  
+☑ Verify directory using pwd  
+☑ List files using ls  
+☑ Open file using nano  
+☑ Navigate content  
+☑ Use PgUp / PgDn  
+☑ Search using F6  
+☑ Replace text if needed  
+☑ Save file  
+☑ Exit editor  
+
+---
+
+---
+## Section 8 - Documentation Notes
+---
+
+### Key Learnings
+
+- Browser input overrides native terminal behavior
+- GNU Readline is partially restricted
+- nano requires alternative key usage in Cloud Shell
+
+---
+
+### Critical Rule
+
+Always account for:
+
+- Browser key interception
+- Viewport-based navigation
+- Alternative shortcuts
+
+---
+
+### Documentation Standard
+
+All future documentation must include:
+
+- Errors encountered
+- Root cause analysis
+- Workarounds
+- Successful outputs
+
+---
+
+---
+## Section 9 - Status
+---
+
+⚠️ Phase 2C – IN PROGRESS
+
+### Completed
+
+- nano navigation
+- search and replace
+- viewport behavior
+- browser limitations
+
+### Remaining
+
+- Advanced Readline usage
+- grep and find integration
+- scripting fundamentals
+
+---
